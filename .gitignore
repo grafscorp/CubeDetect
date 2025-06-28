@@ -36,3 +36,4 @@ out/*
 CMakePresets
 CMakePresets.json
 /.vscode
+/assets
