@@ -34,3 +34,4 @@
 #Cmake
 out/*
 CMakePresets
+CMakePresets.json
