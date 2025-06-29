@@ -6,15 +6,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 
 find_package(OpenCV REQUIRED)
-include_directories(${OpenCV_INCLUDE_DIRS})
 
 
 add_executable(CubeDetect main.cpp)
-target_link_libraries(CubeDetect ${OpenCV_LIBS})
 
 
-configure_file(
-${CMAKE_SOURCE_DIR}/assets/cube.jpg
-${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG}/cube.jpg
-COPYONLY
-)
