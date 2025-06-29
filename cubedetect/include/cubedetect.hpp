@@ -31,9 +31,15 @@ double distanceToLine(const cv::Point2f& point, const cv::Vec4i& line);
 // Функция для продления линий до ближайших вершин
 void extendLinesToIntersections(std::vector<cv::Vec4i>& lines, const std::vector<cv::Point2f>& intersections, float maxDist = 25.0f);
 
-//void circleCube(const cv::Mat &srcImage, cv::Mat &cubeImage);
+/*Detect cube in srcImage, and returned mat with hilighted cube
+@param srcImage  source image
+@param vis_lines visualiation cube lines
+@param vis_pointer visualiation intersection pointers 
+@param vis_vertex visualiation cube vertex
+@param vis_conture visualiation cube conture
 
-cv::Mat detectAndDrawCube(cv::Mat& srcImage);
+*/
+cv::Mat detectAndDrawCube(cv::Mat& srcImage, bool vis_lines = false, bool vis_pointers = false, bool vis_vertex = false , bool vis_conture = true);
 }
 
 #endif
