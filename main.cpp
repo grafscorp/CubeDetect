@@ -2,6 +2,6 @@
 #include <string>
 #include <iostream>
 
-int main(int, char**){
-    std::cout << "Hello, from CubeDetect!\n";
+int main(int argc, char const *argv[])
+{
 }
