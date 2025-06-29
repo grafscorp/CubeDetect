@@ -8,7 +8,11 @@
 
 namespace cubedetectcv{
 
-
+    const double THRESHOLD1_CANNY = 30.0, THRESHOLD2_CANNY = 100.0;
+    const double RHO_HOUGHLINES =1 , THETA_HOUGHLINES = CV_PI/180, MINLINELENGTH_HOUGHLINES = 25,  MAXLINEGAP_HOUGHLINES = 15;
+    const int THRESHOLD_HOUGHLINES=35;
+    const double FILTRED_LENGHTLINE = 20.0;
+    const int CLUSTERCOUNT = 3;
 //Compute angles line to degrees
 double lineAngleDegrees(const cv::Vec4i &line);
 
