@@ -1,0 +1,35 @@
+#ifndef CUBEDETECT_HPP
+#define CUBEDETECT_HPP
+
+#include <opencv2/opencv.hpp>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+
+namespace cubedetectcv{
+
+
+//Compute angles line to degrees
+double lineAngleDegrees(const cv::Vec4i &line);
+
+//Compute point for intersections two lines
+cv::Point2f linesIntersection(const cv::Vec4i &line1, const cv::Vec4i &line2);
+
+/* Combining points(Clustter)
+@param point
+@param lerance - //TODO
+*/
+std::vector<cv::Point2f> clusterPoints(const std::vector<cv::Point2f>& points, const float tolerance = 15.0f);
+
+// Функция для вычисления расстояния от точки до линии
+double distanceToLine(const cv::Point2f& point, const cv::Vec4i& line);
+
+// Функция для продления линий до ближайших вершин
+void extendLinesToIntersections(std::vector<cv::Vec4i>& lines, const std::vector<cv::Point2f>& intersections, float maxDist = 25.0f);
+
+//void circleCube(const cv::Mat &srcImage, cv::Mat &cubeImage);
+
+cv::Mat detectAndDrawCube(cv::Mat& srcImage);
+}
+
+#endif
