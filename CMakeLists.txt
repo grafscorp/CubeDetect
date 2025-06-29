@@ -11,4 +11,17 @@ add_subdirectory(cubedetect)
 
 add_executable(CubeDetect main.cpp)
 
+target_include_directories(CubeDetect PRIVATE
+    ${OpenCV_INCLUDE_DIRS}
+    ${CMAKE_SOURCE_DIR}/cubedetect/include)
+target_link_libraries(CubeDetect PRIVATE 
+${OpenCV_LIBS}
+CubeDetectLib)
+
+
+
+
+
+
+
 
