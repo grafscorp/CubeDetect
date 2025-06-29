@@ -7,6 +7,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 
 find_package(OpenCV REQUIRED)
 
+add_subdirectory(cubedetect)
 
 add_executable(CubeDetect main.cpp)
 
