@@ -37,3 +37,35 @@ cv::Point2f linesIntersection(const cv::Vec4i &line1, const cv::Vec4i &line2)
 
 }
 
+std::vector<cv::Point2f> clusterPoints(const std::vector<cv::Point2f>& points, const float tolerance) {
+    // Result of cluster
+    std::vector<cv::Point2f> clustered;  
+    // Visited pointers
+    std::vector<bool> visited(points.size(), false);  
+    
+    for (size_t i = 0; i < points.size(); i++) {
+        if (visited[i]) continue;  // Skip processed pointers
+        
+        cv::Point2f sum = points[i];  // Start new cluster
+        int count = 1;
+        visited[i] = true;
+        
+        // Find points 
+        for (size_t j = i + 1; j < points.size(); j++) {
+            if (visited[j]) continue;
+            
+            // Check lenght between pointers
+            if (norm(points[i] - points[j]) < tolerance) {
+                sum += points[j];  // Add point to cluster
+                count++;
+                visited[j] = true;
+            }
+        }
+        
+        // Добавляем центроид кластера в результат
+        clustered.push_back(sum / count);
+    }
+
+    return clustered;
+}
+
