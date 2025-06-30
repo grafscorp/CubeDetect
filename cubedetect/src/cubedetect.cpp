@@ -69,3 +69,26 @@ std::vector<cv::Point2f> clusterPoints(const std::vector<cv::Point2f>& points, c
     return clustered;
 }
 
+double distanceToLine(const cv::Point2f& point, const cv::Vec4i& line) {
+    // Convert line to 2 point
+    cv::Point2f linePt1(line[0], line[1]);
+    cv::Point2f linePt2(line[2], line[3]);
+    
+    // Compute vector 
+    double dx = linePt2.x - linePt1.x;
+    double dy = linePt2.y - linePt1.y;
+    
+    // Compute lenght line
+    double length = sqrt(dx*dx + dy*dy);
+    if (length < 1e-5) return norm(point - linePt1);  // Если линия - точка
+    
+    // Compute param t projection pointer on line
+    double t = std::max(0.0, std::min(1.0, ((point.x - linePt1.x)*dx + (point.y - linePt1.y)*dy) / (length*length)));
+    
+    // Point projection
+    cv::Point2f projection(linePt1.x + t * dx, linePt1.y + t * dy);
+
+    // Path from point to projection
+    return cv::norm(point - projection);
+}
+
