@@ -1,4 +1,4 @@
-# CubeDetect
+![cube](https://github.com/user-attachments/assets/d3130c3b-e3b6-4904-8e37-5ddf05b9afae)# CubeDetect
 This project is a solution for detecting a cube from an image using C++, OpenCV. 
 The algorithm identifies cube vertices, edges, and faces.
 
@@ -32,8 +32,24 @@ CubeDetect path/to/image/or/video
 ```
 ## Sample results
 
+<div style="text-align:center">
+  <img src="https://github.com/user-attachments/assets/c4821cc8-88d5-436a-8a19-ade2b9df7459" height="300" width="300" />
+  <img src="https://github.com/user-attachments/assets/77df5497-f8a8-447a-a9d7-ee4c912eee99" height="300" width="300" />
+</div>
+
+
+<div style="text-align:center">
+  <img src="https://github.com/user-attachments/assets/6654479a-92f3-4e9e-aea1-62e7848f5af2" height="300" width="300" />
+  <img src="https://github.com/user-attachments/assets/fb1e47f8-9220-48c3-8c51-601eac6cc2e5" height="300" width="300" />
+</div>
+<div style="text-align:center">
+  <img src="https://github.com/user-attachments/assets/4914b6d8-15fb-4f1b-85ff-4c6ef6e8f4d8" height="300" width="300" />
+  <img src="https://github.com/user-attachments/assets/46f56322-a5ab-40e1-be94-19cbda22a20d" height="300" width="300" />
+</div>
+
 
 ## Problems
+
 
 - Can't work with multiple cubes
 - When the background is loaded, the results are distorted
