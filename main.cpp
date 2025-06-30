@@ -37,6 +37,20 @@ int main(int argc, char const *argv[])
         }
         
     }
+    else{
+        //Image
+        try
+        {
+            showImageCube(filename);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+            return -1;
+        }
+        
+       
+    }
     #ifdef DEBUG
     std::cout << "End\n";
     #endif
