@@ -24,6 +24,7 @@ int main(int argc, char const *argv[])
     std::cout << "Defining the file type : "<< filename << std::endl;
     #endif
 
+    //Check file type 
     if(filename.substr(filename.find_last_of(".")+1) == "mp4" )
     {
         //Video
@@ -55,6 +56,11 @@ int main(int argc, char const *argv[])
     #ifdef DEBUG
     std::cout << "End\n";
     #endif
+    return 0;
+}
+
+void showVideoCube(std::string filename)
+{
      #ifdef DEBUG
     std::cout << "\n";
     #endif
