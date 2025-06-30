@@ -61,8 +61,6 @@ int main(int argc, char const *argv[])
         cv::VideoCapture cap(filename);
         if(!cap.isOpened())
         {
-            std::cerr << "Error. Cant open video";
-            return -1;
         }
 
         int frame_count = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_COUNT));
@@ -82,14 +80,13 @@ int main(int argc, char const *argv[])
         }
         cap.release();
         cv::destroyAllWindows();
-    }
-    else{
-        //Image
-        cv::Mat image = cv::imread(filename);
+}
+
+void showImageCube(std::string filename)
+{
+ cv::Mat image = cv::imread(filename);
         if(image.empty())
         {
-            std::cerr << "Cant read file \n";
-            return -1;
         }
 
         cv::Mat cubeImage;
@@ -99,8 +96,6 @@ int main(int argc, char const *argv[])
         }
         catch(const std::exception& e)
         {
-            std::cerr << "Error proccessing image" << '\n';
-            return -1;
         }
         
         
@@ -110,18 +105,4 @@ int main(int argc, char const *argv[])
 
         cv::waitKey(0);
         cv::destroyAllWindows();
-    }
-
-   
-    
-    
-    
-    
-
-
-
-
-
-    return 0;
 }
-
