@@ -1,6 +1,10 @@
+
 #include <cubedetect.hpp>
 #include <string>
 #include <iostream>
+
+void showVideoCube(std::string filename);
+void showImageCube(std::string filename);
 
 int main(int argc, char const *argv[])
 {
