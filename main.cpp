@@ -25,7 +25,18 @@ int main(int argc, char const *argv[])
 
     if(filename.substr(filename.find_last_of(".")+1) == "mp4" )
     {
- //Video
+        //Video
+        try
+        {
+            showVideoCube(filename);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+            return -1;
+        }
+        
+    }
     #ifdef DEBUG
     std::cout << "End\n";
     #endif
