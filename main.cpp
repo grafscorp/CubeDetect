@@ -17,7 +17,8 @@ int main(int argc, char const *argv[])
         filename = argv[1];
     }
     else{
-        filename = "cube.jpg";
+        std::cout << "Enter file path : ";
+        std::cin >> filename;
     }
     #ifdef DEBUG
     std::cout << "Defining the file type : "<< filename << std::endl;
