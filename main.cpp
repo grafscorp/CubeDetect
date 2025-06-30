@@ -67,6 +67,7 @@ void showVideoCube(std::string filename)
         cv::VideoCapture cap(filename);
         if(!cap.isOpened())
         {
+            throw std::runtime_error("Error. Can't open videofile");
         }
 
         int frame_count = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_COUNT));
@@ -93,6 +94,7 @@ void showImageCube(std::string filename)
  cv::Mat image = cv::imread(filename);
         if(image.empty())
         {
+            throw std::runtime_error("Can't read file");
         }
 
         cv::Mat cubeImage;
@@ -102,6 +104,7 @@ void showImageCube(std::string filename)
         }
         catch(const std::exception& e)
         {
+            throw std::runtime_error("Error proccessing image");
         }
         
         
