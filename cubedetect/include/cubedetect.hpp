@@ -21,7 +21,7 @@ cv::Point2f linesIntersection(const cv::Vec4i &line1, const cv::Vec4i &line2);
 
 /* Combining points(Clustter)
 @param point
-@param lerance - //TODO
+@param lerance 
 */
 std::vector<cv::Point2f> clusterPoints(const std::vector<cv::Point2f>& points, const float tolerance = 15.0f);
 
