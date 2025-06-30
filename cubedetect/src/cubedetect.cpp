@@ -92,3 +92,55 @@ double distanceToLine(const cv::Point2f& point, const cv::Vec4i& line) {
     return cv::norm(point - projection);
 }
 
+void extendLinesToIntersections(std::vector<cv::Vec4i>& lines, const std::vector<cv::Point2f>& intersections, float maxDist) {
+    for (auto& line : lines) {
+        // Получаем конечные точки текущей линии
+        cv::Point2f p1(line[0], line[1]);
+        cv::Point2f p2(line[2], line[3]);
+        
+        cv::Point2f bestP1 = p1;  // Ближайшая точка к p1
+        cv::Point2f bestP2 = p2;  // Ближайшая точка к p2
+        float bestDist1 = maxDist;  // Лучшее расстояние для p1
+        float bestDist2 = maxDist;  // Лучшее расстояние для p2
+        
+        // Поиск ближайших вершин к концам линии
+        for (const auto& pt : intersections) {
+            float d1 = norm(p1 - pt);  // Расстояние от p1 до вершины
+            float d2 = norm(p2 - pt);  // Расстояние от p2 до вершины
+            
+            // Обновляем лучшую точку для p1
+            if (d1 < bestDist1) {
+                bestDist1 = d1;
+                bestP1 = pt;
+            }
+            
+            // Обновляем лучшую точку для p2
+            if (d2 < bestDist2) {
+                bestDist2 = d2;
+                bestP2 = pt;
+            }
+        }
+        
+        // Обновляем линию, если нашли близкие вершины
+        if (bestDist1 < maxDist) {
+            line[0] = bestP1.x;
+            line[1] = bestP1.y;
+        }
+        if (bestDist2 < maxDist) {
+            line[2] = bestP2.x;
+            line[3] = bestP2.y;
+        }
+
+        // Проверка минимальной длины линии после обновления
+        cv::Vec4i newLine = {line[0], line[1], line[2], line[3]};
+        float length = cv::norm(cv::Point2f(newLine[0], newLine[1]) - cv::Point2f(newLine[2], newLine[3]));
+        if (length < 10) {  // Если линия стала слишком короткой
+            // Восстанавливаем оригинальную линию
+            line = {static_cast<int>(p1.x), static_cast<int>(p1.y), 
+                    static_cast<int>(p2.x), static_cast<int>(p2.y)};
+        }
+    }
+}
+
+
+
