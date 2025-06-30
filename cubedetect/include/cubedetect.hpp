@@ -5,7 +5,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
-
+//#define DEBUG
 namespace cubedetectcv{
 //Consts for proccesing image algorimts 
 const double THRESHOLD1_CANNY = 30.0, THRESHOLD2_CANNY = 100.0;
