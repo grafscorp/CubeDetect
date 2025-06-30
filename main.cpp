@@ -8,7 +8,9 @@ void showImageCube(std::string filename);
 
 int main(int argc, char const *argv[])
 {
+    #ifdef DEBUG
     std::cout << "Start\n";
+    #endif
     std::string filename;
     if(argc > 1)
     {  
@@ -17,10 +19,19 @@ int main(int argc, char const *argv[])
     else{
         filename = "cube.jpg";
     }
+    #ifdef DEBUG
+    std::cout << "Defining the file type : "<< filename << std::endl;
+    #endif
 
     if(filename.substr(filename.find_last_of(".")+1) == "mp4" )
     {
  //Video
+    #ifdef DEBUG
+    std::cout << "End\n";
+    #endif
+     #ifdef DEBUG
+    std::cout << "\n";
+    #endif
         cv::VideoCapture cap(filename);
         if(!cap.isOpened())
         {
