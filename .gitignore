@@ -35,3 +35,9 @@
 out/*
 CMakePresets
 CMakePresets.json
+/.vscode
+/assets
+/debug
+cubedetect/build/Debug/CubeDetectLib.pdb
+cubedetect/lib/Debug/CubeDetectLib.pdb
+lib/Debug/CubeDetectLib.pdb
