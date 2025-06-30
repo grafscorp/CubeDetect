@@ -1,4 +1,6 @@
-![cube](https://github.com/user-attachments/assets/d3130c3b-e3b6-4904-8e37-5ddf05b9afae)# CubeDetect
+# CubeDetect
+![cube](https://github.com/user-attachments/assets/7d408a88-2a63-4ef1-aed7-7ae633035304)
+
 This project is a solution for detecting a cube from an image using C++, OpenCV. 
 The algorithm identifies cube vertices, edges, and faces.
 
